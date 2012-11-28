@@ -115,7 +115,10 @@ static tool_output_file *GetOutputStream(const char *TargetName,
             OutputFilename += ".cpp";
           else
             OutputFilename += ".s";
-        } else
+        }
+        else if (TargetName[0] == 'j' && TargetName[1] == 's')
+          OutputFilename += ".jsbe.js";    
+        else
           OutputFilename += ".s";
         break;
       case TargetMachine::CGFT_ObjectFile:
